@@ -1,6 +1,6 @@
 // INIT VARIABLES
 // var root = 'https://pwasample.test/'; // local
-var root = 'https://pwasample.github.io/'; // live
+var root = 'https://murat-kara.github.io/'; // live
 var useHash = false;
 var router = new Navigo(root, useHash, '#');
 var modal = document.getElementById('modal-preloader');
