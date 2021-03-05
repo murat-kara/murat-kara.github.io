@@ -1,36 +1,87 @@
 <!DOCTYPE html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="manifest" href="manifest.json">
-    <!-- ios support -->
-    <link rel="apple-touch-icon" href="images/icons/icon-72x72.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-96x96.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-128x128.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-144x144.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-384x384.png">
-    <link rel="apple-touch-icon" href="images/icons/icon-512x512.png">
-    <meta name="apple-mobile-web-app-status-bar" content="#db4938">
-    <meta name="theme-color" content="#db4938">
-    <title>PWA Denemesi</title>
-  </head>
-  <body>
-    <main>
-      <nav>
-        <h1>Pwa Denemesi</h1>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Blog</li>
-        </ul>
-      </nav>
-      <div class="container"></div>
-    </main>
-    <script src="js/app.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8"/>
+  <title>PWA Ornek</title>
+  <meta name="description" content="My first PWA"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00897B"/>
+</head>
+<body>
+
+  <!-- Navigasi -->
+  <nav class="teal lighten-2" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo center">PWAOrnek</a>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger">&#9776;</a>
+
+      <ul class="topnav right hide-on-med-and-down"></ul>
+      <ul id="nav-mobile" class="sidenav"></ul>
+    </div>
+  </nav>
+  <!-- Akhir Navigasi -->
+
+  <div id="page-loading" class="container center-align mt-3" style="display:none">
+    <div class="preloader-wrapper small active">
+      <div class="spinner-layer spinner-green-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-content container"></div>
+
+  <!-- Modal Structure -->
+  <div id="modal-preloader" class="modal modal-middle">
+    <div class="modal-content">
+      <div class="preloader-wrapper inline-block-middle small active">
+        <div class="spinner-layer spinner-green-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+      <p class="inline-block-middle ml-3">Lutfen bekleyin..</p>
+    </div>
+  </div>
+
+  <script src="js/materialize.min.js"></script>
+  <script src="js/zepto.min.js"></script>
+  <script src="js/navigo.min.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+  // REGISTER SERVICE WORKER
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      if (navigator.serviceWorker.controller) {
+        console.log('Active service worker found, no need to register');
+      } else {
+        navigator.serviceWorker.register('/service-worker.js')
+        .then(function() {
+          console.log('Pendaftaran ServiceWorker berhasil');
+        })
+        .catch(function(){
+          console.log('Pendaftaran ServiceWorker gagal');
+        });
+      }
+    })
+  } else {
+    console.log("ServiceWorker belum didukung browser ini.")
+  }
+  </script>
+</body>
 </html>
