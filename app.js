@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const coffees = [
+/*
   {
     name: "Perspiciatis",
     image: "images/coffee1.jpg"
@@ -7,11 +8,11 @@ const coffees = [
   {
     name: "Voluptatem",
     image: "images/coffee2.jpg"
-  },
+  },*/
   {
     name: "Explicabo",
     image: "images/coffee3.jpg"
-  },
+  },/*
   {
     name: "Rchitecto",
     image: "images/coffee4.jpg"
@@ -35,7 +36,7 @@ const coffees = [
   {
     name: "Accusantium",
     image: "images/coffee9.jpg"
-  }
+  }*/
 ];
 const showCoffees = () => {
   let output = "";
